@@ -4,9 +4,9 @@ Create new repo inside workspace-pico-libs
 # Commandline
 git init
 git commit -m "first commit"
-git branch -M main
+git branch -M master
 git remote add origin https://github.com/workspace-pico-libs/...
 git add .
 #git status
 git commit -m "Initial files"
-git push -u origin main
+git push -u origin master
