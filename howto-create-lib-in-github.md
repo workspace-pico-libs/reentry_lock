@@ -1,7 +1,8 @@
-# In github.com
+# 1. In github.com
 Create new repo inside workspace-pico-libs
 
-# Commandline
+# 2. Commandline
+```
 git init
 git commit -m "first commit"
 git branch -M master
@@ -10,3 +11,4 @@ git add .
 #git status
 git commit -m "Initial files"
 git push -u origin master
+```
