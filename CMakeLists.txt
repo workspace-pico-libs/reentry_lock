@@ -18,11 +18,18 @@ target_include_directories(${LIB_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/private/inc
 )
 
-# Zależności biblioteki
+# Library dependencies
 target_link_libraries(${LIB_NAME}
     PUBLIC
         common_compile_options
         FreeRTOS-Kernel
+)
+
+#GIGA IMPORTANT: force linker to include these symbols, otherwise they will be optimized out and the lock will not work
+target_link_options(reentry_lock INTERFACE
+    -Wl,--undefined=_sbrk
+    -Wl,--undefined=__malloc_lock
+    -Wl,--undefined=__malloc_unlock
 )
 
 #reset something after changename LOL

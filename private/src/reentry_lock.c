@@ -13,7 +13,7 @@ static uint8_t *heap_ptr = newlib_heap;
 static size_t newlib_heap_max_var;
 
 static SemaphoreHandle_t malloc_lock = NULL;
-
+#warning "REENTRY LOCK FILE INCLUDED"
 void *_sbrk(ptrdiff_t incr)
 {
     uint8_t *prev = heap_ptr;
