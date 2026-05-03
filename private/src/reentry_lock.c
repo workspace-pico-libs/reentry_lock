@@ -40,17 +40,17 @@ void __malloc_lock(struct _reent *r)
     // fully transparent – tak jak wcześniej
     if (malloc_lock == NULL)
     {
-        malloc_lock = xSemaphoreCreateMutex();
+        malloc_lock = xSemaphoreCreateRecursiveMutex();
         configASSERT(malloc_lock);
     }
 
-    xSemaphoreTake(malloc_lock, portMAX_DELAY);
+    xSemaphoreTakeRecursive(malloc_lock, portMAX_DELAY);
 }
 
 void __malloc_unlock(struct _reent *r)
 {
     (void)r;
-    xSemaphoreGive(malloc_lock);
+    xSemaphoreGiveRecursive(malloc_lock);
 }
 
 size_t newlib_heap_max()
